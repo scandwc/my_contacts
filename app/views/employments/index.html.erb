@@ -17,7 +17,7 @@
       <% @employments.each do |employment| %>
       <tr>
         <td><%= employment.company.name %></td>
-        <td><%= employment.contact_id %></td>
+        <td><%= employment.contact.name %></td>
         <td>
           <a href="/employments/<%= employment.id %>" class="btn btn-primary">Show</a>
           <a href="/employments/<%= employment.id %>/edit" class="btn btn-warning">Edit</a>
