@@ -1,6 +1,9 @@
 class Company < ApplicationRecord
   # Direct associations
 
+  has_many   :employments,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

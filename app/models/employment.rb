@@ -1,6 +1,8 @@
 class Employment < ApplicationRecord
   # Direct associations
 
+  belongs_to :company
+
   # Indirect associations
 
   # Validations
