@@ -1,6 +1,6 @@
 class EmploymentsController < ApplicationController
   def index
-    @employments = Employment.all
+    @employments = Employment.page(params[:page]).per(10)
 
     render("employments/index.html.erb")
   end
