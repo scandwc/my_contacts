@@ -1,6 +1,7 @@
 class EmploymentsController < ApplicationController
   def index
-    @employments = Employment.page(params[:page]).per(10)
+    @q = Employment.ransack(params[:q])
+    @employments = @q.result(:distinct => true).includes(:company, :contact).page(params[:page]).per(10)
 
     render("employments/index.html.erb")
   end

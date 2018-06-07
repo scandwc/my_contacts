@@ -10,7 +10,8 @@ class ContactsController < ApplicationController
   end
 
   def index
-    @contacts = Contact.page(params[:page]).per(10)
+    @q = Contact.ransack(params[:q])
+    @contacts = @q.result(:distinct => true).includes(:employments, :comments, :category, :user, :companies).page(params[:page]).per(10)
 
     render("contacts/index.html.erb")
   end

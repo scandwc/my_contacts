@@ -3,6 +3,179 @@
     Contacts
     <a href="/contacts/new" class="btn btn-lg btn-success">New Contact</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "contacts_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :email_cont, "Email contains" %>
+    <%= f.text_field :email_cont, :class => "form-control", :placeholder => "Email contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :last_connected_date, "Last connected date" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='last_connected_dategteqPicker'>
+                  <%= f.text_field :last_connected_date_gteq, :class => "form-control", :placeholder => "Last connected date greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='last_connected_datelteqPicker'>
+                  <%= f.text_field :last_connected_date_lteq, :class => "form-control", :placeholder => "Last connected date less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#last_connected_dategteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#last_connected_datelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#last_connected_dategteqPicker').on("dp.change", function (e) {
+                  $('#last_connected_datelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#last_connected_datelteqPicker').on("dp.change", function (e) {
+                  $('#last_connected_dategteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+    <%= f.label :linkedin_cont, "Linkedin contains" %>
+    <%= f.text_field :linkedin_cont, :class => "form-control", :placeholder => "Linkedin contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :position_cont, "Position contains" %>
+    <%= f.text_field :position_cont, :class => "form-control", :placeholder => "Position contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+          <%= f.label :created_at, "Employment Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='employmentsgteqcreated_atPicker'>
+                  <%= f.text_field :employments_created_at_gteq, :class => "form-control", :placeholder => "Employment Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='employmentslteqcreated_atPicker'>
+                  <%= f.text_field :employments_created_at_lteq, :class => "form-control", :placeholder => "Employment Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#employmentsgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#employmentslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#employmentsgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#employmentslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#employmentslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#employmentsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+      <%= f.label :comments_notes_cont, "Comment notes contains" %>
+      <%= f.text_field :comments_notes_cont, :class => "form-control", :placeholder => "Comment notes contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :category_name_cont, "Category name contains" %>
+      <%= f.text_field :category_name_cont, :class => "form-control", :placeholder => "Category name contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :user_email_cont, "User email contains" %>
+      <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :companies_name_cont, "Company name contains" %>
+      <%= f.text_field :companies_name_cont, :class => "form-control", :placeholder => "Company name contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/contacts" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#contacts_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">
