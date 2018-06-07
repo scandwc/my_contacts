@@ -54,6 +54,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_employment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for company_id -->
+      <input type="hidden" name="company_id" value="<%= @company.id %>">
+
+      <!-- Label and input for contact_id -->
+      <div class="form-group">
+        <label for="contact_id" class="control-label">
+          Contact
+        </label>
+
+        <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Employment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

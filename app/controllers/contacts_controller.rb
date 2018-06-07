@@ -16,6 +16,8 @@ class ContactsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @employment = Employment.new
     @contact = Contact.find(params[:id])
 
     render("contacts/show.html.erb")
