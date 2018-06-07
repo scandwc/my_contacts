@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Employment resource:
+  # CREATE
+  get "/employments/new", :controller => "employments", :action => "new"
+  post "/create_employment", :controller => "employments", :action => "create"
+
+  # READ
+  get "/employments", :controller => "employments", :action => "index"
+  get "/employments/:id", :controller => "employments", :action => "show"
+
+  # UPDATE
+  get "/employments/:id/edit", :controller => "employments", :action => "edit"
+  post "/update_employment/:id", :controller => "employments", :action => "update"
+
+  # DELETE
+  get "/delete_employment/:id", :controller => "employments", :action => "destroy"
+  #------------------------------
+
   # Routes for the Contact resource:
   # CREATE
   get "/contacts/new", :controller => "contacts", :action => "new"
