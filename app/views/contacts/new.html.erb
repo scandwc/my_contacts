@@ -69,7 +69,7 @@
           Category
         </label>
 
-        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @contact.category_id %>">
+        <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name, @contact.category_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
