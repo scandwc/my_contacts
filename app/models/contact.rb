@@ -1,6 +1,8 @@
 class Contact < ApplicationRecord
   # Direct associations
 
+  belongs_to :user
+
   belongs_to :category
 
   has_many   :comments,
