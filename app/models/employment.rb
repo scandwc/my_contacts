@@ -5,4 +5,6 @@ class Employment < ApplicationRecord
 
   # Validations
 
+  validates :contact_id, :presence => true
+
 end
