@@ -33,7 +33,7 @@
           Contact
         </label>
 
-        <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @comment.contact_id %>">
+        <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :name, @comment.contact_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
