@@ -13,6 +13,10 @@ class Contact < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :companies,
+             :through => :employments,
+             :source => :company
+
   # Validations
 
   validates :name, :presence => true

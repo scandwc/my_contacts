@@ -6,6 +6,10 @@ class Company < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :contacts,
+             :through => :employments,
+             :source => :contact
+
   # Validations
 
   validates :name, :uniqueness => true
