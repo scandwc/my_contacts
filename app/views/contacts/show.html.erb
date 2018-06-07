@@ -32,12 +32,14 @@
       <a href="/contacts" class="btn btn-primary">
         Back
       </a>
-      <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_contact/<%= @contact.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @contact.user %>
+        <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_contact/<%= @contact.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

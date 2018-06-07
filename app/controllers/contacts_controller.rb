@@ -1,4 +1,14 @@
 class ContactsController < ApplicationController
+  before_action :current_user_must_be_contact_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_contact_user
+    contact = Contact.find(params[:id])
+
+    unless current_user == contact.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @contacts = Contact.all
 

@@ -30,8 +30,11 @@
         <td><%= contact.user.email %></td>
         <td>
           <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Show</a>
-          <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == contact.user %>
+            <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
