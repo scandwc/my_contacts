@@ -21,10 +21,22 @@
       <dd><%= @contact.email %></dd>
 
       <dt>Category</dt>
-      <dd><%= @contact.category_id %></dd>
+      <dd>
+        <% if @contact.category.present? %>
+          <a href="/categories/<%= @contact.category_id %>">
+            <%= @contact.category.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @contact.user_id %></dd>
+      <dd>
+        <% if @contact.user.present? %>
+          <a href="/users/<%= @contact.user_id %>">
+            <%= @contact.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

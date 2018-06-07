@@ -16,8 +16,20 @@
 
       <% @employments.each do |employment| %>
       <tr>
-        <td><%= employment.company.name %></td>
-        <td><%= employment.contact.name %></td>
+        <td>
+          <% if employment.company.present? %>
+            <a href="/companies/<%= employment.company.id %>">
+              <%= employment.company.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if employment.contact.present? %>
+            <a href="/contacts/<%= employment.contact.id %>">
+              <%= employment.contact.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/employments/<%= employment.id %>" class="btn btn-primary">Show</a>
           <a href="/employments/<%= employment.id %>/edit" class="btn btn-warning">Edit</a>

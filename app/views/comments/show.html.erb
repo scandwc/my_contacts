@@ -9,7 +9,13 @@
       <dd><%= @comment.notes %></dd>
 
       <dt>Contact</dt>
-      <dd><%= @comment.contact_id %></dd>
+      <dd>
+        <% if @comment.contact.present? %>
+          <a href="/contacts/<%= @comment.contact_id %>">
+            <%= @comment.contact.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

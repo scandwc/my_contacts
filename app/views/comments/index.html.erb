@@ -17,7 +17,13 @@
       <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.notes %></td>
-        <td><%= comment.contact.name %></td>
+        <td>
+          <% if comment.contact.present? %>
+            <a href="/contacts/<%= comment.contact.id %>">
+              <%= comment.contact.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
           <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>

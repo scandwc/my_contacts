@@ -26,8 +26,20 @@
         <td><%= contact.linkedin %></td>
         <td><%= contact.last_connected_date %></td>
         <td><%= contact.email %></td>
-        <td><%= contact.category.name %></td>
-        <td><%= contact.user.email %></td>
+        <td>
+          <% if contact.category.present? %>
+            <a href="/categories/<%= contact.category.id %>">
+              <%= contact.category.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if contact.user.present? %>
+            <a href="/users/<%= contact.user.id %>">
+              <%= contact.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Show</a>
           
