@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @contact.errors.any? %>
+  <% @contact.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Contact</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_contact" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @contact.name %>">
+      </div>
+
+      <!-- Label and input for position -->
+      <div class="form-group">
+        <label for="position" class="control-label">
+          Position
+        </label>
+
+        <input type="text" id="position" name="position" placeholder="Position" class="form-control" value="<%= @contact.position %>">
+      </div>
+
+      <!-- Label and input for linkedin -->
+      <div class="form-group">
+        <label for="linkedin" class="control-label">
+          Linkedin
+        </label>
+
+        <input type="text" id="linkedin" name="linkedin" placeholder="Linkedin" class="form-control" value="<%= @contact.linkedin %>">
+      </div>
+
+      <!-- Label and input for last_connected_date -->
+      <div class="form-group">
+        <label for="last_connected_date" class="control-label">
+          Last connected date
+        </label>
+
+        <input type="text" id="last_connected_date" name="last_connected_date" placeholder="Last connected date" class="form-control" value="<%= @contact.last_connected_date %>">
+      </div>
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @contact.email %>">
+      </div>
+
+      <!-- Label and input for category_id -->
+      <div class="form-group">
+        <label for="category_id" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @contact.category_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @contact.user_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Contact
+      </button>
+      or
+      <a href="/contacts">Cancel</a>
+    </form>
+  </div>
+</div>
